@@ -2,3 +2,11 @@ body{
     font-family: 'open sans condensed';
     padding: 20px 60px;
 }
+a{
+    text-decoration: none;
+    color: black;
+    transition:0.5s;
+}
+a:hover{
+    color: pink;
+}
