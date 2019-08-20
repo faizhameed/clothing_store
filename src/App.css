@@ -10,3 +10,7 @@ a{
 a:hover{
     color: pink;
 }
+
+*{
+    box-sizing: border-box;
+}
