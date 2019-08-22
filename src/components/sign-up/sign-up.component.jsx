@@ -30,7 +30,7 @@ handleSubmit= async event=>{
         await createUserProfileDocument(user,{displayName});
         this.setState({
             displayName:'',
-             email:'',
+            email:'',
              password:'',
              confirmPassword:''
         })
