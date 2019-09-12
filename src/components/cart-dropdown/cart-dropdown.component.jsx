@@ -16,8 +16,8 @@ import './cart-dropdown.styles.scss';
          <div className ='cart-dropdown'>
             <div className ="cart-items"/>
             {cartItems.length?
-                cartItems.map(cartItem=>(<div>
-                    <CartItem key ={cartItem.id}  item={cartItem}/>
+                cartItems.map(cartItem=>(<div key ={cartItem.id+cartItem.id} >
+                    <CartItem  item={cartItem}/>
                 </div>)):
                 <span className ='empty-message'>Your cart is empty</span>
             }
