@@ -1,6 +1,6 @@
 import React from 'react'
 import {ReactComponent as Logo} from "../../assets/crown.svg";
-import { HeaderContainer,LogoContainer,OptionsContainer,OptionDiv,OptionLink } from './header.styles';
+import { HeaderContainer,LogoContainer,OptionsContainer,OptionLink } from './header.styles';
 import { auth} from '../../firebase/firebase.utils'
 import { connect } from 'react-redux';
 import CartIcon from '../cart-icon/cart-icon.component';
@@ -25,10 +25,10 @@ const  Header=({currentUser,hidden})=> (
               currentUser?(
                 <div>
 
-                  <OptionDiv onClick ={()=>auth.signOut()}>
+                  <OptionLink as='div' onClick ={()=>auth.signOut()}>
                     SIGN OUT
-                  </OptionDiv>
-                      <OptionDiv >{`Welcome ${currentUser.displayName}`}</OptionDiv>
+                  </OptionLink>
+                      <OptionLink as= 'div' >{`Welcome ${currentUser.displayName}`}</OptionLink>
                 </div>
               ):(
               <OptionLink to = '/signin'>
