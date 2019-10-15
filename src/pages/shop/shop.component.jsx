@@ -5,8 +5,7 @@ import CollectionsOverviewContainer from '../../components/collections-overview/
 import CollectionPageContainer from '../collection/collection.container'
 import {connect} from 'react-redux'
 import {fetchCollectionsStartAsync} from '../../redux/shop/shop.actions'
-import {createStructuredSelector} from 'reselect'
-import {selectIsCollectionsLoaded} from '../../redux/shop/shop.selector'
+
 
 
 
