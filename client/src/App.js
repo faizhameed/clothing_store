@@ -4,10 +4,10 @@ import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
 import Header from "./components/header/header.component";
-
 import { GlobalStyle } from "./global.styles";
 import { selectCurrentuser } from "./redux/user/user.selector";
 import { checkUserSession } from "./redux/user/user.actions";
+import WithSpinner from "./components/with-spinner/with-spinner.component";
 
 const Homepage = lazy(() => import("./pages/homepage/homepage.component"));
 const ShopPage = lazy(() => import("./pages/shop/shop.component"));
@@ -30,13 +30,7 @@ const App = ({ checkUserSession, currentUser }) => {
       <GlobalStyle />
       <Header />
       <Switch>
-        <Suspense
-          fallback={
-            <div>
-              <h1>LOADING....</h1>
-            </div>
-          }
-        >
+        <Suspense fallback={<WithSpinner />}>
           <Route exact path="/" component={Homepage} />
 
           <Route path="/shop" component={ShopPage} />
