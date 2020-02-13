@@ -4,6 +4,7 @@ const cors = require("cors"); // cross orign assess which helps to make the fron
 
 const bodyParser = require("body-parser");
 const path = require("path");
+const compression = require("compression");
 
 if (process.env.NODE_ENV != "production") require("dotenv").config();
 
@@ -12,7 +13,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const app = express(); // intans new express appl
 const port = process.env.PORT || 5000;
-
+app.use(compression());
 app.use(
   bodyParser.json()
 ); /* any of the requests coming in
