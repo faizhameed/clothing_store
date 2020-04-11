@@ -9,7 +9,7 @@ const config = {
   projectId: "clothingstore-db-74c09",
   storageBucket: "",
   messagingSenderId: "121175846361",
-  appId: "1:121175846361:web:abe6d8609026a0c1"
+  appId: "1:121175846361:web:abe6d8609026a0c1",
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -26,7 +26,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         displayName,
         email,
         createdAt,
-        ...additionalData
+        ...additionalData,
       });
     } catch (error) {
       console.log("error while setting user in dataBase:", error);
@@ -45,7 +45,7 @@ export const addCollectionsAndDocuments = async (
   console.log(collectionRef);
   const batch = firestore.batch();
 
-  objectsToAdd.forEach(obj => {
+  objectsToAdd.forEach((obj) => {
     const newDocRef = collectionRef.doc();
     batch.set(newDocRef, obj);
   });
@@ -54,21 +54,21 @@ export const addCollectionsAndDocuments = async (
 
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
-    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
       unsubscribe();
       resolve(userAuth);
     }, reject);
   });
 };
 
-export const convertCollectionsSnapshotToMap = collections => {
-  const transformedCollection = collections.docs.map(doc => {
+export const convertCollectionsSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
     const { title, items } = doc.data();
     return {
       routeName: encodeURI(title.toLowerCase()),
       id: doc.id,
       title,
-      items
+      items,
     };
   });
   return transformedCollection.reduce((accum, collection) => {
